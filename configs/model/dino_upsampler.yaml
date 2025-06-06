@@ -1,0 +1,64 @@
+arch: "BTSNet"
+use_code: true
+prediction_mode: default
+
+predict_dino: true
+dino_dims: 64  # == encoder.pca_dino_out
+
+compensate_artifacts: false
+flip_augmentation: true
+
+encoder:
+  type: "dinov2"
+  mode: "upsample-gt"                           # upsample-gt, downsample-pred
+  decoder_arch: "dpt"
+  upsampler_arch: "multiscale-crop"             # multiscale-crop, nearest
+  # downsampler_arch: "featup"                  # featup, bilinear
+  encoder_arch: "vit-b"                         # vit-s, vit-b
+  version: "v1"                                 # v1, v2, reg, fit3d
+  separate_gt_version: "v1"                     # v1, v2, reg, fit3d, None
+  encoder_freeze: false
+  flip_avg_gt: false
+  dim_reduction_arch: "mlp"
+  num_ch_enc: [64, 64, 128, 256]
+  intermediate_features: [3, 6, 9]
+  decoder_out_dim: 256
+  dino_pca_dim: 64  # == dino_dims
+  image_size: [192, 640]
+  key_features: false
+
+code:
+  num_freqs: 6
+  freq_factor: 1.5
+  include_input: true
+
+decoder_heads:
+  - type: "resnet"
+    name: "normal_head"
+    freeze: false
+    args:
+      n_blocks: 0
+      d_hidden: 128
+final_prediction_head: "normal_head"
+
+encoding_strategy: 
+  name: "default"
+  args: {}
+eval_encoding_strategy:
+  name: "default"
+  args: null
+loss_renderer_strategy: 
+  name: "kitti_360"
+  args: null
+eval_loss_renderer_strategy:
+  name: "single_renderer"
+  args:
+    shuffle_frames: false
+    all_frames: true
+
+inv_z: true
+
+learn_empty: false
+code_mode: z
+
+n_frames_render: 4  # number of frames to render among v==8

@@ -1,0 +1,9 @@
+n_coarse : 32
+n_fine : 0
+n_fine_depth : 0
+depth_std : 1.0
+sched : []
+white_bkgd : false
+lindisp: true
+hard_alpha_cap: true
+eval_batch_size: 65536

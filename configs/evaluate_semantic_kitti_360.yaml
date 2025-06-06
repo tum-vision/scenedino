@@ -1,0 +1,50 @@
+defaults:
+  - dataset: kitti_360_sscbench
+  - model: dino_downsampler
+  - renderer: pixelnerf
+  - training: semantic
+  - validation: semantic
+  - downstream: semantic
+  - _self_
+
+training_type: "downstream_training"
+mode: "nvs"
+seed: 0
+backend: null
+nproc_per_node: null
+with_amp: false
+name: "training"
+batch_size: 1
+gradient_accum_factor: 1
+num_workers: 6
+
+renderer:
+  n_coarse : 32
+  n_fine : 0
+  n_fine_depth : 0
+  depth_std : 1.0
+  sched : []
+  white_bkgd : false
+  lindisp: true
+  hard_alpha_cap: true
+  render_mode: volumetric
+  eval_batch_size: 65536
+  normalize_dino: true
+
+# eval_visualize: [0, 1, 2, 3]
+
+output:
+  path: "out/evaluation-paper"
+  unique_id: evaluation-kitti-360-sscbench
+
+checkpoint: "<PATH-FEATURE-CHECKPOINT>.pt"
+
+evaluations:
+  - type: seg
+    agg_type: unsup_seg
+    args:
+      n_classes: 19
+      gt_classes: 19
+
+downstream:
+  input_dim: 768

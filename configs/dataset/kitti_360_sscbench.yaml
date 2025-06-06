@@ -1,0 +1,15 @@
+type: "old_KITTI_360"
+data_path: "<PATH-KITTI-360>"
+pose_path: "<PATH-KITTI-360-DATA-POSES>"
+split_path: "datasets/kitti_360/splits/sscbench"
+image_size: [ 192, 640 ]
+data_stereo: true
+data_fisheye: true
+data_fc: 2
+# dilation: 10
+# color_aug: true
+fisheye_offset: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
+stereo_offset: [0]
+is_preprocessed: true
+fisheye_rotation: -15
+data_segmentation: true

@@ -1,0 +1,21 @@
+defaults:
+  - optimizer: scenedino
+  - scheduler: scenedino
+  - loss: scenedino
+  - _self_
+
+num_epochs: 50
+continue: false
+
+checkpoint_every: 10000
+log_every_iters: 100
+
+ray_sampler:
+  z_near: 3
+  z_far: 80
+  sample_mode: "patch"
+  args:
+    patch_size: 16
+    ray_batch_size: 2048
+    snap_to_grid: true
+    dino_upscaled: false

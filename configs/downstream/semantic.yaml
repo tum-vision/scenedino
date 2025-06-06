@@ -1,0 +1,13 @@
+type: "segmentation"
+
+n_classes: 19
+gt_classes: 19
+input_dim: 384
+code_dim: 64
+
+knn_neighbors: 4
+buffer_size: 256
+patch_sample_size: 576
+
+mode: "3d"
+apply_crf: False

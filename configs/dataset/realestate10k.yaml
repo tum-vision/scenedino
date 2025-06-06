@@ -1,0 +1,3 @@
+type: "RealEstate10K"
+data_path: "<PATH-REALESTATE-PKL>.pickle"
+image_size: [288, 512]

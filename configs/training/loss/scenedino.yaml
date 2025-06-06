@@ -1,0 +1,15 @@
+- type: reconstruction
+  coarse:
+    criterion: "l1+ssim"
+    dino_criterion: "cosine"
+  invalid_policy: weight_guided
+
+  reconstruct_dino: true
+  lambda_dino_coarse: 0.2
+  temperature_dino: 5
+
+  regularizations:
+    - type: edge_aware_smoothness
+      lambda: 0.001
+    - type: dino_edge_aware_smoothness
+      lambda: 0.25

@@ -1,0 +1,78 @@
+validation:
+  metrics:
+    - type: depth
+      args: null
+    - type: dino
+      args: null
+  subset:
+    type: range
+    args:
+      start: 0
+      end: 128
+  save_best:
+    metric: dino_cos_sim
+    sign: 1
+  log_loss: false
+  global_step:
+    type: "trainer iteration" 
+  events:
+    # - type: STARTED
+    #   args: null
+    - type: ITERATION_COMPLETED
+      args:
+        every: 5000
+    # - type: EPOCH_COMPLETED
+    #   args:
+    #     every: 1
+    - type: COMPLETED
+      args: null
+
+visualization:
+  metrics:
+    - type: depth
+      args: null
+  subset:
+    type: range
+    args:
+      start: 200
+      end: 201
+  visualize:
+    input_imgs: null
+    reconstructed_imgs: null
+    reconstruction_rmse: null
+    dino_gt: null
+    reconstructed_dino: null
+    reconstructed_dino_downsampled: null
+    batch_dino_gt: null
+    batch_dino_artifacts: null
+    batch_dino_features_kmeans: null
+    batch_dino_gt_kmeans: null
+    batch_reconstructed_dino: null
+    batch_reconstructed_dino_downsampled: null
+    dino_downsampling_salience: null
+    dino_downsampling_weight: null
+    dino_downsampling_per_patch_weight: null
+    dino_cos_sim_downsampled: null
+    depth: null
+    depth_profile: null
+    alpha_sum: null
+    ray_entropy: null
+    ray_entropy_weights: null
+    invalids: null
+    rendered_flow: null
+    predicted_occlusions: null
+    uncertainty: null
+  log_loss: false
+  global_step:
+    type: "trainer iteration"
+  events:
+    - type: STARTED
+      args: null
+    - type: ITERATION_COMPLETED
+      args:
+        every: 5000
+    # - type: EPOCH_COMPLETED
+    #   args:
+    #     every: 1
+    - type: COMPLETED
+      args: null

@@ -1,0 +1,38 @@
+name: scenedino
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python==3.10
+  - pytorch==2.3.0
+  - torchvision==0.18.0
+  - pytorch-cuda=12.1
+  - pydensecrf
+  - pip
+  - pip:
+      - tensorflow-datasets
+      - pytorch-ignite
+      - hydra-core
+      - omegaconf
+      - h5py
+      - lpips
+      - dotmap
+      - dotdict
+      - pytorch-msssim
+      - plyfile
+      - tensorflow # for tensorboard (but it seems to be much faster with tensorflow)
+      - opencv-python
+      - matplotlib
+      - moviepy
+      - mediapy
+      - numpy==1.26.4
+      - scipy
+      - scikit-image
+      - notebook
+      - nuscenes-devkit
+      - timm
+      - kornia
+      - pykeops
+      - PuLP
+      - optuna

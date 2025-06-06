@@ -1,0 +1,80 @@
+validation:
+  metrics:
+    - type: seg
+      agg_type: unsup_seg
+      args:
+        n_classes: 19
+        gt_classes: 19
+    - type: stego
+      agg_type: concat
+  subset:
+    type: random
+    args:
+      size: 32
+  save_best:
+    metric: "stego_cluster_weighted_miou"
+    update_model: true
+    dry_run: false
+  log_loss: false
+  global_step:
+    type: "trainer iteration"
+  events:
+    # - type: STARTED
+    #   args: null
+    - type: ITERATION_COMPLETED
+      args:
+        every: 100
+    # - type: EPOCH_COMPLETED
+    #   args:
+    #     every: 1
+    # - type: COMPLETED
+    #   args: null
+
+visualization_seg:
+  metrics: {}
+  subset:
+    type: range
+    args:
+      start: 300
+      end: 301
+  visualize:
+    input_imgs: null
+    # reconstructed_imgs: null
+    # reconstruction_rmse: null
+    dino_gt: null
+    # reconstructed_dino: null
+    # reconstructed_dino_downsampled: null
+    batch_dino_gt: null
+    batch_dino_artifacts: null
+    segs_gt: null
+    segs_pred: null
+    batch_reconstructed_dino: null
+    batch_dino_features_kmeans: null
+    # batch_reconstructed_dino_downsampled: null
+    # dino_downsampling_salience: null
+    # dino_downsampling_weight: null
+    # dino_downsampling_per_patch_weight: null
+    # dino_cos_sim_downsampled: null,
+    depth: null
+    # depth_profile: null
+    # alpha_sum: null
+    # ray_entropy: null
+    # ray_entropy_weights: null
+    # invalids: null
+    # rendered_flow: null
+    # predicted_occlusions: null
+    # uncertainty: null
+  log_loss: false
+  global_step:
+    type: "trainer iteration"
+  events:
+    - type: STARTED
+      args: null
+    - type: ITERATION_COMPLETED
+      args:
+        every: 100
+    # - type: EPOCH_COMPLETED
+    #   args:
+    #     every: 1
+    # - type: COMPLETED
+    #   args: null

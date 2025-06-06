@@ -1,0 +1,16 @@
+defaults:
+  - optimizer: semantic
+  - loss: semantic
+  - _self_
+
+num_epochs: 1
+epoch_length: 2500
+continue: false
+
+checkpoint_every: 5000
+log_every_iters: 250
+
+ray_sampler:
+  z_near: 3
+  z_far: 80
+  sample_mode: "image"

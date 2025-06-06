@@ -1,0 +1,43 @@
+defaults:
+  - dataset: kitti_360_sscbench
+  - model: dino_downsampler
+  - renderer: pixelnerf
+  - training: scenedino
+  - validation: scenedino
+  - _self_
+
+training_type: "full_training"
+mode: "nvs"
+seed: 0
+backend: null
+nproc_per_node: null
+with_amp: true
+name: "training"
+batch_size: 4
+num_workers: 4
+
+output:
+  path: "out/features-paper"
+  unique_id: scenedino-kitti-360-sscbench
+
+renderer:
+  n_coarse : 32
+  n_fine : 0
+  n_fine_depth : 0
+  depth_std : 1.0
+  sched : []
+  white_bkgd : false
+  lindisp: true
+  hard_alpha_cap: true
+  render_mode: volumetric
+  eval_batch_size: 65536
+  normalize_dino: true
+
+training:
+  ray_sampler:
+    args:
+      patch_size: 8
+      # ray_batch_size: 512
+
+  scheduler:
+    step_size: 50000

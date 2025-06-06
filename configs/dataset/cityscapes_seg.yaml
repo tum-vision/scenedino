@@ -1,0 +1,2 @@
+type: "Cityscapes_seg"
+data_path: "<PATH-CITYSCAPES>"

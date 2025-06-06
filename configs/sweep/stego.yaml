@@ -1,0 +1,50 @@
+
+study_name: "default_stego_sweep"
+storage_url: "sqlite:///<PATH-OPTUNA-STUDY>.db"
+direction: "maximize"
+n_trials: 50
+
+start_original_param: true
+
+hparams:
+  - key: "training.loss.0.random_weight"
+    method: "suggest_float"
+    kwargs:
+      name: "random_weight"
+      low: 0.0
+      high: 1.0
+
+  - key: "training.loss.0.knn_weight"
+    method: "suggest_float"
+    kwargs:
+      name: "knn_weight"
+      low: 0.0
+      high: 1.0
+
+  - key: "training.loss.0.self_weight"
+    method: "suggest_float"
+    kwargs:
+      name: "self_weight"
+      low: 0.0
+      high: 1.0
+
+  - key: "training.loss.0.random_shift"
+    method: "suggest_float"
+    kwargs:
+      name: "random_shift"
+      low: 0.6
+      high: 1.0
+
+  - key: "training.loss.0.knn_shift"
+    method: "suggest_float"
+    kwargs:
+      name: "knn_shift"
+      low: 0.0
+      high: 0.4
+
+  - key: "training.loss.0.self_shift"
+    method: "suggest_float"
+    kwargs:
+      name: "self_shift"
+      low: 0.2
+      high: 0.6

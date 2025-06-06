@@ -1,0 +1,10 @@
+- type: stego
+
+  random_weight: 0.6702352279261414
+  knn_weight: 0.4156436438453117
+  self_weight: 0.08146997886146659
+  random_shift: 0.8709334888837256
+  knn_shift: 0.18458300726748128
+  self_shift: 0.43610463774158115
+  
+  pointwise: false
