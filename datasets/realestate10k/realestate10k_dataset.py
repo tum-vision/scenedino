@@ -10,7 +10,7 @@ import torch
 from torch.utils.data import Dataset
 from torchvision.transforms import ColorJitter
 
-from bts.common.augmentation import get_color_aug_fn
+from scenedino.common.augmentation import get_color_aug_fn
 
 
 class RealEstate10kDataset(Dataset):

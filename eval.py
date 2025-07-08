@@ -3,7 +3,7 @@ import hydra
 from omegaconf import DictConfig, OmegaConf
 import os
 
-from bts.evaluation.unified_evaluator import evaluation
+from scenedino.evaluation.unified_evaluator import evaluation
 
 
 @hydra.main(version_base=None, config_path="configs", config_name="evaluation")

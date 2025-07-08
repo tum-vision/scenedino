@@ -43,14 +43,13 @@ DATASET_LENGTH = 10
 FULL_EVAL = True
 SAMPLE_EVERY = None
 SAMPLE_OFFSET = 2
-# SAMPLE_RANGE = list(range(1000, 1600))
 SAMPLE_RANGE = None
 
 SIZE = 51.2 # Can be: 51.2, 25.6, 12.8
 SIZES = (12.8, 25.6, 51.2)
 VOXEL_SIZE = 0.2 # Needs: 0.2 % VOXEL_SIZE == 0
 
-USE_ADDITIONAL_INVALIDS = True  # Unset for ply generation
+USE_ADDITIONAL_INVALIDS = True
 
 TEST_ALPHA_CUTOFFS = False
 SEARCH_VALUES = [10e-1, 10e-2, 10e-3, 10e-4, 10e-5, 10e-6, 10e-7]
@@ -58,22 +57,25 @@ SEARCH_VALUES = [10e-1, 10e-2, 10e-3, 10e-4, 10e-5, 10e-6, 10e-7]
 SIGMA_CUTOFF = 0.2
 
 USE_ALPHA_WEIGHTING = True
-USE_GROW = True  # Unset for ply generation
+USE_GROW = True
 
 CREATE_SIGMA_TRADEOFF_PLOT = True
 SIGMA_VALUES = [1, 0.5, 0.25, 0.1, 0.05, 0.025, 0.01, 0.005, 0.0025, 0.001]
 
 PLOT_ALL_IMAGES = False
 
-GENERATE_PLY_FILES = False  # Set for ply generation
+GENERATE_PLY_FILES = False
 PLY_ONLY_FOV = True
-PLY_IDS = [300, 400, 470]  # [120, 185, 240, 500, 640, 655, 795, 890]# list(range(100, 1000))
+PLY_IDS = [300, 400, 470]
 OUTPUT_PATH = Path("<PATH-OUTPUT>")
 PLY_SIZES = [25.6, 51.2]
 
 GENERATE_STATISTICS = False
 
-# Setup of CUDA device and logging
+# For ply generation:
+# USE_ADDITIONAL_INVALIDS = False
+# USE_GROW = False
+# GENERATE_PLY_FILES = True
 
 os.system("nvidia-smi")
 
@@ -216,9 +218,9 @@ def main():
         renderer.eval()
 
     elif mode.startswith("scenedino"):
-        from bts.models import make_model as dino_bts_make_model
-        from bts.renderer.nerf import NeRFRenderer as dino_bts_NeRFRenderer
-        from bts.common.ray_sampler import ImageRaySampler as dino_bts_ImageRaySampler
+        from scenedino.models import make_model as dino_bts_make_model
+        from scenedino.renderer.nerf import NeRFRenderer as dino_bts_NeRFRenderer
+        from scenedino.common.ray_sampler import ImageRaySampler as dino_bts_ImageRaySampler
 
         bts_dino_parent_relative = Path("../../../../")
         bts_dino_parent_absolute = str(bts_dino_parent_relative.resolve())

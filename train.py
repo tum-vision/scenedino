@@ -5,9 +5,9 @@ import os
 
 import torch
 
-from bts.training.trainer import training as full_training
-from bts.training.trainer_overfit import training as overfit_training
-from bts.training.trainer_downstream import training as downstream_training
+from scenedino.training.trainer import training as full_training
+from scenedino.training.trainer_overfit import training as overfit_training
+from scenedino.training.trainer_downstream import training as downstream_training
 
 
 @hydra.main(version_base=None, config_path="configs", config_name="exp_kitti_360_DFT")

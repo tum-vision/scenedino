@@ -15,24 +15,22 @@ dependencies:
       - pytorch-ignite
       - hydra-core
       - omegaconf
-      - h5py
       - lpips
       - dotmap
       - dotdict
       - pytorch-msssim
       - plyfile
-      - tensorflow # for tensorboard (but it seems to be much faster with tensorflow)
+      - tensorflow  # for tensorboard
       - opencv-python
       - matplotlib
-      - moviepy
-      - mediapy
       - numpy==1.26.4
       - scipy
       - scikit-image
-      - notebook
-      - nuscenes-devkit
       - timm
       - kornia
+      - numba
       - pykeops
       - PuLP
       - optuna
+      - gradio
+      - open3d  # for gradio demo

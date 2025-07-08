@@ -15,7 +15,7 @@ from torch.utils.data import Dataset
 from torchvision.transforms import ColorJitter
 
 from datasets.kitti_360.annotation import KITTI360Bbox3D
-from bts.common.augmentation import get_color_aug_fn
+from scenedino.common.augmentation import get_color_aug_fn
 
 import omegaconf
 

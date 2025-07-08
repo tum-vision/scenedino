@@ -30,7 +30,7 @@ TARGET_PATH = Path("<PATH-TARGET>")
 # out_path = Path("media/voxel/npy/")
 out_path = Path("<PATH-OUT>")
 # out_path = Path("/storage/slurm/hayler/bts/voxel_outputs/sscnet")
-out_path.mkdir(exist_ok=True, parents=True)
+# out_path.mkdir(exist_ok=True, parents=True)
 
 fov_mask = get_fov_mask()
 
@@ -99,7 +99,7 @@ classes_to_colors = torch.tensor(
     ]
 )
 
-with open("<PATH-TO-LABEL-MAPS>.yaml", "r") as f:
+with open("sscbench/label_maps.yaml", "r") as f:
     label_maps = yaml.safe_load(f)
 
 device = "cpu"
@@ -135,7 +135,7 @@ def save_plot(img, file_name=None, grey=False, mask=None):
     else:
         cv2.imwrite(file_name, cv2.cvtColor((img * 255).clip(max=255).astype(np.uint8), cv2.COLOR_RGB2BGR) if not grey else (img * 255).clip(max=255).astype(np.uint8))
 
-faces = [[0, 1, 2, 3], [0, 3, 7, 4], [2, 6, 7, 3], [1, 2, 6, 5], [0, 1, 5, 4], [4, 5, 6, 7]]
+faces = [[0, 1, 2, 3], [0, 3, 7, 4], [2, 6, 7, 3], [5, 6, 2, 1], [4, 5, 1, 0], [7, 6, 5, 4]]
 faces_t = torch.tensor(faces, device=device)
 
 
@@ -241,8 +241,10 @@ def get_pts(x_range, y_range, z_range, x_res, y_res, z_res):
     return xyz
 
 
-def save_as_voxel_ply(path, is_occupied, voxel_size=0.2, size=(256, 256, 32), classes=None, colors=None):
+def save_as_voxel_ply(path, is_occupied, voxel_size=0.2, size=(256, 256, 32), classes=None, colors=None, fov_mask=None):
     is_occupied = remove_invisible(is_occupied)
+    if fov_mask is not None:
+        is_occupied &= fov_mask.to(is_occupied.device)
 
     is_occupied[0] = 0
     is_occupied[-1] = 0
