@@ -29,7 +29,7 @@
 </div>
 <br>
 
-**TL;DR:** SceneDINO is unsupervised and infers 3D geometry and features from a single image in a feed-forward manner. Distilling and clustering features lead to unsupervised semantic scene completion predictions. SceneDINO is trained using multi-view self-supervision.
+**TL;DR:** SceneDINO is unsupervised and infers 3D geometry and features from a single image in a feed-forward manner. Distilling and clustering SceneDINO's 3D feature field results in unsupervised semantic scene completion predictions. SceneDINO is trained using multi-view self-supervision.
 
 ## Abstract
 
