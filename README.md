@@ -17,6 +17,8 @@
 
 <a href="https://arxiv.org/abs/2507.06230"><img src='https://img.shields.io/badge/ArXiv-grey' alt='Paper PDF'></a>
 <a href="https://visinf.github.io/scenedino/"><img src='https://img.shields.io/badge/Project Page-grey' alt='Project Page URL'></a>
+<a href="https://huggingface.co/spaces/jev-aleks/SceneDINO"><img src='https://img.shields.io/badge/🤗 Demo-grey' alt='Project Page URL'></a>
+
 <a href="https://opensource.org/licenses/Apache-2.0"><img src='https://img.shields.io/badge/License-Apache%202.0-blue.svg' alt='License'></a>
 [![Framework](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?&logo=PyTorch&logoColor=white)](https://pytorch.org/)
 
