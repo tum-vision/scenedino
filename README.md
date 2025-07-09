@@ -35,7 +35,7 @@ Semantic scene completion (SSC) aims to infer both the 3D geometry and semantics
 
 ## News
 
-- `08/07/2025`: [ArXiv](https://arxiv.org/abs/xxxxx.xxxxx) preprint and code released. 🚀
+- `09/07/2025`: [ArXiv](https://arxiv.org/abs/2507.06230) preprint and code released. 🚀
 
 ## Setup (Installation & Datasets)
 
