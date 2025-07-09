@@ -2,7 +2,7 @@
 <h1>Feed-Forward <i>SceneDINO</i> for Unsupervised Semantic Scene Completion</h1>
 
 
-[**Aleksandar Jevtić**](https://www.linkedin.com/in/aleksandar-jevti%C4%87-46998ab2/)<sup>* 1</sup>
+[**Aleksandar Jevtić**](https://jev-aleks.github.io/)<sup>* 1</sup>
 [**Christoph Reich**](https://christophreich1996.github.io/)<sup>* 1,2,4,5</sup>
 [**Felix Wimbauer**](https://fwmb.github.io/)<sup>1,4</sup>
 [**Oliver Hahn**](https://olvrhhn.github.io/)<sup>2</sup>
